@@ -5,7 +5,7 @@ import Card from "./Card";
 const CardWithPagination = ({ itemsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / itemsPerPage);
-  const pagesToShow = 4;
+
   const totalPagesLeft = totalPages - currentPage;
 
   const handlePageChange = (page) => {
@@ -14,7 +14,7 @@ const CardWithPagination = ({ itemsPerPage }) => {
 
   const handleNextClick = () => {
     if (totalPagesLeft > 0) {
-      setCurrentPage(currentPage + pagesToShow);
+      setCurrentPage(currentPage + 1);
     }
   };
 
@@ -26,7 +26,7 @@ const CardWithPagination = ({ itemsPerPage }) => {
         {currentPage > 1 && (
           <button
             className="btn btn-outline"
-            onClick={() => handlePageChange(currentPage - pagesToShow)}
+            onClick={() => handlePageChange(currentPage - 1)}
           >
             Previous
           </button>
